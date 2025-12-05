@@ -1,0 +1,29 @@
+what is github 
+  github is an product of microsoft
+  github is an server
+  github upload your local data on github respository
+  ayone can access or download data (public)
+
+what is git
+  git is an software of github
+  git is also known as gitbash
+  git is used to help to upload data on github server
+
+  download git ...
+  
+   https://git-scm.com/install/windows
+   
+
+Github commands 
+
+1) git init
+2) git add .
+3) git commit -m "first commit"
+4) git remote add origin https://github.com/Brijesh1990/frontend-830am-TTS.git
+5) git push -u origin main
+
+How to clone our data in another PC ....
+
+git clone https://github.com/Brijesh1990/frontend-830am-TTS
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Input Validation Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form action="#">
+        <p>
+            <label>Age (18–60): </label>
+            <input type="number" name="age" min="18" max="60" required>
+        </p>
+
+        <p>
+            <label>Date of Birth (2000–2025): </label>
+            <input type="date" name="dob" min="2000-01-01" max="2025-12-31" required>
+        </p>
+
+        <p>
+            <label>Username: </label>
+            <input type="text" name="username"
+                   pattern="[A-Za-z]{3,10}"
+                   placeholder="Only letters, 3–10 chars"
+                   required>
+        </p>
+
+        <p>
+            <label>Email: </label>
+            <input type="email"
+                   name="email"
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                   placeholder="Enter a valid email address"
+                   required>
+        </p>
+
+        <p>
+            <label>Mobile: </label>
+            <input type="tel"
+                   name="mobile"
+                   pattern="[0-9]{10}"
+                   placeholder="Enter 10 digit mobile number"
+                   required>
+        </p>
+
+        <p>
+            <!-- THIS is important -->
+            <input type="submit" value="OK">
+        </p>
+    </form>
+    <marquee behavior="" direction="">TEst</marquee>
+</body>
+</html>

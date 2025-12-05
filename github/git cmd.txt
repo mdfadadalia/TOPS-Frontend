@@ -1,0 +1,13 @@
+Github commands 
+
+1) git init
+2) git add .
+3) git commit -m "Comments Any"
+4) git remote add origin https://github.com/mdfadadalia/TOPS-Frontend.git
+5) git push -u origin master
+
+clone our data in another PC
+
+git clone https://github.com/mdfadadalia/TOPS-Frontend.git
+
+

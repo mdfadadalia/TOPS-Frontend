@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mayur Fadadalia — MERN Stack Developer</title>
+  <style>
+    :root{
+      --bg:#071025; --card:#0b1220; --muted:#9aa4b2; --accent1:#6f42c1; --accent2:#06b6d4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:linear-gradient(180deg,var(--bg),#041222 140%);color:#e6eef6;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
+    .wrap{flex:1;max-width:980px;margin:auto;padding:24px}
+
+    header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:20px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo-wrap{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:grid;place-items:center;font-weight:800;color:#fff}
+    .title{font-size:18px;font-weight:800}
+    .subtitle{font-size:12px;color:var(--muted)}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:600}
+    nav a:hover{color:#fff}
+
+    .hero{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;margin-bottom:40px}
+    .hero-col{flex:1 1 320px;background:rgba(255,255,255,0.03);padding:22px;border-radius:12px;min-width:260px}
+    h1{font-size:28px;margin-bottom:10px}
+    p.lead{color:var(--muted);margin-bottom:14px}
+    .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+    .btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block;text-align:center}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#fff}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.1);color:var(--muted)}
+
+    .mdbox{width:180px;height:180px;border-radius:20px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:grid;place-items:center;box-shadow:0 0 25px rgba(0,0,0,0.4);animation:float 5s ease-in-out infinite}
+    .mdbox span{font-size:64px;font-weight:900;color:white}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+    section{margin-bottom:40px}
+    h2{margin-bottom:10px}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .card{background:var(--card);padding:16px;border-radius:10px}
+    .muted{color:var(--muted);font-size:14px}
+
+    footer{color:var(--muted);text-align:center;padding:16px 0;margin-top:auto;background:rgba(255,255,255,0.02);}
+
+    @media (max-width:520px){h1{font-size:22px}.logo-wrap{width:54px;height:54px}.mdbox{width:140px;height:140px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo-wrap">MD</div>
+        <div>
+          <div class="title">Mayur Fadadalia</div>
+          <div class="subtitle">MERN Stack Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div class="hero-col">
+        <h1>Build modern full‑stack apps — MERN</h1>
+        <p class="lead">I create robust, scalable web applications using <strong>MongoDB, Express, React, and Node.js</strong>. Focused on clean APIs, reusable components, and fast UX.</p>
+        <div class="buttons">
+          <a class="btn btn-primary" href="https://github.com/mayur-fadadalia" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn btn-outline" href="https://mayur-fadadalia.github.io" target="_blank" rel="noopener">Live (GitHub Pages)</a>
+        </div>
+      </div>
+      <div class="mdbox"><span>MD</span></div>
+    </main>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="muted">Full‑stack MERN developer skilled in building RESTful APIs, server-side logic, and responsive React frontends. Comfortable with MongoDB schema design, authentication, and deploying to GitHub Pages / Vercel.</p>
+    </section>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div style="font-weight:700">Inventory Manager (MERN)</div>
+          <div class="muted">Full CRUD, role-based access, REST API. <a href="https://github.com/mayur-fadadalia/inventory-manager" target="_blank">GitHub</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:700">Analytics Dashboard</div>
+          <div class="muted">React dashboard with charts and Node API. <a href="https://github.com/mayur-fadadalia/analytics-dashboard" target="_blank">GitHub</a></div>
+        </div>
+        <div class="card">
+          <div style="font-weight:700">E‑commerce Prototype</div>
+          <div class="muted">MERN stack store with payments demo. <a href="https://github.com/mayur-fadadalia/ecommerce-prototype" target="_blank">GitHub</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div style="font-weight:700">Get in touch</div>
+          <div class="muted">mayur@example.com<br>Rajkot, India<br>+91 98765 43210</div>
+        </div>
+        <div class="card">
+          <div style="font-weight:700">Social</div>
+          <div class="muted">
+            <a href="https://github.com/mayur-fadadalia" target="_blank">GitHub</a><br>
+            <a href="https://mayur-fadadalia.github.io" target="_blank">GitHub Pages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div>© <span id="yr"></span> Mayur Fadadalia — GitHub Hosted.</div>
+  </footer>
+
+  <script>document.getElementById('yr').innerText = new Date().getFullYear();</script>
+</body>
+</html>
