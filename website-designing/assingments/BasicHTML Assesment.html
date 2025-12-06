@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {        
+        font-family: 'Courier New', Courier, monospace;
+        font-size: xx-large;        
+    }
+    pre{
+        white-space: pre-wrap;
+    } 
+    span
+    {
+        color: blue;
+    }  
+</style>
+<body>
+<h3>Basic HTML Questions</h3>
+<pre>
+    <span>1) What does HTML stand for?</span>
+    => HTML stands for HyperText Markup Language.
+
+    <span>2) What is the purpose of the &lt;html&gt; tag?</span>
+    => This tag defines the root of an HTML document. It contains all the HTML content of the webpage.
+
+    <span>3) What is the use of the &lt;head&gt; section in HTML?</span>
+    => This tag contains metadata about the webpage such as: title, link css, link js, metatags, favicon etc.
+
+    <span>4) What is the &lt;title&gt; tag used for?</span>
+    => title tag is used to set the title of the webpage, disply on browser tab and also used in SEO 
+
+    <span>5) What is the difference between &lt;h1&gt; and &lt;h6&gt;?</span>
+    => H1 tag used to define largest heading, H6 used to define smallest heading in webpage. 
+
+    <span>6) What is the use of the &lt;p&gt; tag?</span>
+    => this tag is used to define paregraph of text.
+
+    <span>7) What is an HTML attribute? Give two examples.</span>
+    => HTML attribute provide additional information about tag
+        (1) &lt;a href="url"&gt;Test&lt;/a&gt;
+        (2) &lt;img src="img path"&gt;
+
+    <span>8) What is the purpose of the &lt;br&gt; tag?</span>
+    => this tag is used to break current line.
+
+    <span>9) What is the difference between &lt;b&gt; and &lt;strong&gt; tags?</span>
+    => both same make text bold in webpage.
+
+    <span>10) What does the &lt;em&gt; tag do?</span>
+    => this tag emphasizes text, disply text in italic format.
+</pre>
+<hr>
+
+<h3>Links & Images</h3>
+<pre>
+<span>1) How do you create a hyperlink in HTML?</span>
+=> Syntax : &lt;a href="url" &gt; Link Caption &lt;a&gt; 
+   Example : <a target="_blank" href="https://www.google.com">Click to Open Google Page</a> 
+
+<span>2) What is the purpose of the href attribute?</span>
+=> href contains the URL or page link of the page you want to open.
+
+<span>3) How do you open a link in a new tab?</span>
+=> Use target="_blank" attribute inside the &lt;a&gt;
+
+<span>4) What is the purpose of the &lt;img&gt; tag?</span>
+=> img tag is used to disply image on webpage
+
+<span>5) What does the alt attribute do in an image?</span>
+=> alt attribute is used to disply text when image fail to loads.
+
+<span>6) What is the difference between absolute and relative URLs?</span>
+=> absolute url means full url of webpage including base url 
+    i.e. <span style="color: green;"> &lt;a href="http://myproject/Contactus.php"&gt; Contactus &lt;a&gt;</span>
+
+=> relative url means short url of webpage or excluding base url 
+    i.e. <span style="color: green;"> &lt;a href="Contactus.php"&gt; Contactus &lt;a&gt; <span>        
+</pre>
+
+<hr>
+<h3>Lists in HTML</h3>
+<pre>
+<span>1) What is an ordered list in HTML?</span>
+=> Order list is used to disply list in ordered i.e. serial numbered/alphabet/roman number format
+   Example : &lt;ol&gt;
+                &lt;li&gt; Item 1 &lt;/li&gt;
+                &lt;li&gt; Item 2 &lt;/li&gt;
+                &lt;li&gt; Item 3 &lt;/li&gt;
+                &lt;li&gt; Item 4 &lt;/li&gt;
+            &lt;/ol&gt;         
+
+   Output : <ol>
+                <li> Item 1 </li>
+                <li> Item 2 </li>
+                <li> Item 3 </li>
+                <li> Item 4 </li>
+            </ol>
+
+<span>2) What is an unordered list in HTML?</span>
+=> unordered list is used to disply list shows with bullet instead of serial numbered format. 
+   Example : &lt;ul&gt;
+                &lt;li&gt; Item 1 &lt;/li&gt;
+                &lt;li&gt; Item 2 &lt;/li&gt;
+                &lt;li&gt; Item 3 &lt;/li&gt;
+                &lt;li&gt; Item 4 &lt;/li&gt;
+            &lt;/ul&gt;         
+
+   Output : <ul>
+                <li> Item 1 </li>
+                <li> Item 2 </li>
+                <li> Item 3 </li>
+                <li> Item 4 </li>
+            </ul>
+            
+<span>3) What is the purpose of the &lt;li&gt; tag?</span>
+=> This tag is used to disply item on webpage as per above examples.
+
+<span>4) Write the tags used to create a definition list.</span>
+=> Defination list tags used to disply list of defination with its terms/points. 
+Example : &lt;dl&gt; 
+            &lt;dt&gt; ABC &lt;/dt&gt;
+            &lt;dd&gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos blanditiis, expedita.  &lt;/dd&gt;
+
+            &lt;dt&gt; XYZ &lt;/dt&gt;
+            &lt;dd&gt; Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos blanditiis, expedita.  &lt;/dd&gt;
+          &lt;/dl&gt;  
+
+Output :  <dl>
+            <dt> ABC:</dt>
+            <dd> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos blanditiis, expedita.  <dd>
+            <dt> XYZ:<dt>
+            <dd> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos blanditiis, expedita.  </dd>
+          </dl>  
+</pre>
+
+<hr>
+<h3>Tables in HTML</h3>
+<pre>
+<span>1) What is the use of &lt;table&gt;?</span>
+=> table tag is used to create table which disply data in row and column format.
+
+<span>2) What do &lt;tr&gt;, &lt;td&gt;, and &lt;th&gt; stand for?</span>
+=>  &lt;tr&gt; : Table Row
+    &lt;td&gt; : Table Data
+    &lt;th&gt; : Table Header
+
+<span>3) What is the purpose of the colspan attribute?</span>
+=> colspan attribute is used to mearged multiple column into single cell
+
+<span>4) What is the purpose of the rowspan attribute?</span>
+=> rowspan attribute is used to mearged multiple row into single cell
+
+<span>5) How do you create a table header?</span>
+=> th tag is used to create table header.
+    Example : 
+            &lt;table&gt;
+                &lt;tr&gt;
+                    &lt;th&gt; Sr.No. &lt;/th&gt;
+                    &lt;th&gt; Name &lt;/th&gt;
+                    &lt;th&gt; Mo.No. &lt;/th&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                    &lt;th&gt; 1 &lt;/th&gt;
+                    &lt;th&gt; Mayur Fadadalia &lt;/th&gt;
+                    &lt;th&gt; 9408662385 &lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/table&gt;    
+    Output : 
+            <table border="1" cellpadding ="10px" style="margin-left: 10%;">
+                <tr>
+                    <th> Sr.No. </th>
+                    <th>Name</th>
+                    <th>Mo.No.</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Mayur Fadadalia</td>
+                    <td>9408662385</td>
+                </tr>
+            </table>
+</pre>
+<hr>
+<h3>Forms in HTML</h3>
+<pre>
+
+<span>1) What is the purpose of the &lt;form&gt; tag?</span>
+=> This tag used to send response to server which collected using input/textarea tags
+
+<span>2) What does the action attribute do?</span>
+=> in action attribute's assing address(url) for send data on url location when user submit the form.
+    i.e. <span  style="color: green;">&lt;form action="url.html"&gt;</span>
+
+<span>3) What does method="post" mean?</span>
+=> post method used to sending data securely meanas data not shown in url.  
+
+<span>4) What is the purpose of the &lt;input&gt; tag?</span>
+=> this tag is used to take user input. 
+
+<span>5) Name 5 different input types in HTML.</span>
+=> &lt;input type="text"&gt; : input text data from user
+   &lt;input type="number"&gt; : input number data from user
+   &lt;input type="email"&gt; : input email from user
+   &lt;input type="password"&gt; : input password from user
+   &lt;input type="date"&gt; : input date from user
+   also other input types (i.e. : checkbox, color, radio, file, etc...) availabe. 
+    
+<span>6) What is the &lt;textarea&gt; tag used for?</span>
+=> this tag is used to take multi line text data input i.e. address, remarks, etc.
+
+<span>7) How do you create a dropdown menu in HTML?</span>
+=> we can create dropdown menu using &lt;select&gt; & &lt;option&gt;.
+Example : &lt;select&gt;
+            &lt;option&gt; Option 1 &lt;/option&gt;
+            &lt;option&gt; Option 2 &lt;/option&gt;
+            &lt;option&gt; Option 3 &lt;/option&gt;
+          &lt;/select&gt;   
+
+Output :<select>
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+            <option value="">Option 3</option>
+        </select>
+
+<span>8) What is the purpose of the &lt;label&gt; tag?</span>
+=> this tag is used to set text label of input fields.
+i.e. <span  style="color: green;">&lt;label&gt;Enter Your Name &lt;/label&gt;</span>
+</pre>
+</body>
+<hr>
+<h3>Semantic HTML</h3>
+<pre>    
+<span>1) What is semantic HTML?</span>
+=> Semantic HTML means using HTML tags that clearly describe the meaning and structure of the content.
+
+<span>2) What is the use of &lt;header&gt;?</span>
+=> this tag represent the top section of webpage. it mostly cantains webpage logo, title, heading, navigation, etc...  
+
+<span>3) What is the use of &lt;footer&gt;</span>
+=> this tag represent bottom section of webpage. it mostly contains copyright, company information, social media links etc...
+
+<span>4) What does &lt;section&gt; represent?</span>
+=> this tag represent group of contants. like Homepage Section, About section, contactus section etc....
+
+<span>5) What does &lt;article&gt; represent?</span>
+=> this tag disply data or content in webpage
+
+<span>6) What is the use of &lt;nav&gt;?</span>
+=> this tag is used to define navigation link.
+Example : &lt;nav&gt; 
+            &lt;a href="home"&gt; Home &lt;a&gt;
+            &lt;a href="about"&gt; About &lt;a&gt;
+            &lt;a href="contactus"&gt; Contactus &lt;a&gt;
+          &lt;/nav&gt;  
+
+Output : <nav>   <a href="#">Home</a> | <a href="#">About</a> |  <a href="#">Contactus</a>   </nav>
+</pre>
+<hr>
+<h3>Multimedia</h3>
+<pre>    
+<span>1) How do you embed a video in HTML?</span>
+=> using video tag we embed video in html.
+    Example : &lt;video src="video url" controls&gt;                    
+              &lt;/video&gt;  
+    Output : <video src="test.mp4"controls> </video>
+
+<span>2) How do you embed audio in HTML?</span>
+=> using audio tag we embed audio in html.
+    Example : &lt;audio src="audio url" controls&gt;                    
+              &lt;/audio&gt;  
+    Output : <audio src="test.mp3"controls></audio>
+
+<span>3) What is the purpose of the &lt;source&gt; tag?</span>
+=> source tag is used to define path audio/video inside audio and video tags.
+    Example : &lt;audio controls&gt;                    
+                &lt;source src="audio url" type="audio/mp3"&gt; 
+            &lt;/audio&gt;  
+    Output : <audio src="test.mp3"controls></audio>
+</pre>
+<hr>
+<h3>HTML5 Concepts</h3>
+<pre>
+
+<span>1) What is a self-closing tag? Give examples.</span>
+=> this tag does not need to closing that tag
+    Example : &lt;hr&gt;, &lt;br&gt;, &lt;input&gt;, &lt;link&gt;, &lt;meta&gt;, &lt;img&gt;, &lt;p&gt;
+
+<span>2) What is the &lt;!DOCTYPE html&gt; declaration?</span>
+=> inform to the browser that page content written in HTML.
+
+<span>3) What is the difference between block-level and inline elements?</span>
+=> block level elements means start on new line and that takes full length of width. in this type of elements contains one or more inline-elements.  
+   inline elements means do not start on new line. that takes necessary length of widht. in this type of elements generaly not written block elements. 
+
+<span>4) Name 5 block-level HTML elements.</span>
+=>  &lt;div&gt;, &lt;p&gt;, &lt;h1&gt, &lt;h6&gt, &lt;section&gt;
+
+<span>5) Name 5 inline HTML elements.</span>
+=>  &lt;a&gt;, &lt;img&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;sub&gt;, &lt;sup&gt;  
+
+<span>6) What is the purpose of the &lt;meta&gt; tag?</span>
+=> this tag provides information about webpage.
+
+<span>7) What is localStorage and is it part of HTML?</span>
+=> localStorage means store data in browser, this future providded by Javascript using function 
+   localStorage.setItem("variable name", "data");  
+
+   localStorage is not part of HTML but used in HTML with use of Javascript.
+
+<span>8) What is the difference between HTML and HTML5?</span>
+=> HTML:
+        Older versions and Limited features
+        Not provides built-in audio/video tags
+        not provides built-in input validation 
+   HTML5:
+        Latest version of HTML
+        Supports built-in audio & video tags
+        also supprot New semantic tags like (&lt;header&gt;, &lt;nav&gt;, &lt;footer&gt;, etc....)
+        provides bult-in form validation
+</pre>
+</html>
