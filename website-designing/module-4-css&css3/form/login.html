@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       /* Page background */
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #f4f6f8;
+}
+
+/* Center form */
+form {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Fieldset styling */
+fieldset {
+    width: 100%;
+    max-width: 420px;
+    border: none;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.50);    
+}
+
+/* Legend */
+legend {
+    padding: 0 12px;
+    font-size: 22px;
+    color: #1976d2;
+}
+
+/* Inputs & textarea */
+input, textarea {
+    width: 95%;
+    padding: 12px;
+    margin: 12px 0;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+input:focus, textarea:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 0 2px rgba(25,118,210,0.15);
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+    height: 90px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: #1976d2;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 12px;    
+}
+
+/* Hover effect */
+input[type="submit"]:hover {
+    background: #0d47a1;
+}
+p
+{
+    margin: 5px;
+    margin-left: 15px;
+}
+/* Mobile friendly */
+@media (max-width: 480px) 
+{
+    fieldset 
+    {
+        margin: 15px;
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend><strong>Login</strong></legend>            
+            <input type="email" placeholder="Enter Valid Email">
+            <input type="password" placeholder="Enter Valid password">
+            <input type="submit" value="Login">
+            <p align="center">If not Register then <a href="register.html">Register</a> |  <a href="forgotpwd.html">Forgot Password</a></p>
+        </fieldset>
+    </form>
+</body>
+</html>
