@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>animations</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script src='main.js'></script>
+    <style>
+        .anim 
+        {
+         width: 35%;
+         height: auto;
+         margin: auto;
+         border: 5px double blue;
+         padding: 45px;   
+         /* animation: infinite 2s bounceInUp; */
+           /* animation: infinite 2s bounceInDown; */
+           animation: alternate 2s bounceInDown;
+        }
+        .anim h1 
+        {
+            font-size: 38px;
+            /* animation: 2s infinite heartBeat; */
+            /* animation: 2s infinite fadeIn; */
+             /* animation: 2s  alternate fadeIn; */
+
+        }
+        .anim hr 
+        {
+            width: 30%;
+            text-align: left;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="anim">
+        <h1>Register Now >></h1>
+        <hr align="left" />
+    </div>
+
+    
+</body>
+</html>   
