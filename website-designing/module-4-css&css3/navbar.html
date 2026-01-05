@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: lightgray;
+			overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .navbar ul li {
+            display: inline-block;
+            padding: 5px 35px;
+            text-transform: capitalize;
+        }
+
+        .logo {
+            width: 30%;
+            height: auto;
+            margin-top: 5px;
+            padding: 10px;
+        }
+
+        .logo a {
+            font-size: 35px;
+        }
+
+        .navigation li:hover {
+            /* color: coral; */
+            background-color: #1976d2;
+            /* transition: 0.1s ease-in-out all; */
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            margin-left: 10%;
+            color: white;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+        .dropdown li{
+            width: 70px;
+            text-align: center;
+        }
+        .dropdown1 {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown1:hover .dropdown-menu1 {
+            display: block;
+        }
+
+        .dropdown-menu {
+            position: absolute;             
+            padding: 8px;
+            display: none;
+        }
+        .dropdown-menu1 {
+            position: absolute;            
+            top: 0;
+            left: 100%;
+            padding: 0px;
+            display: none;
+        }
+
+        .dropdown-menu li {
+            background-color: black;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        .main {
+            background-color: antiquewhite;
+            margin-left: 5px;
+            margin-top: 70px;
+        }
+
+        .content {
+            display: inline-block;
+            width: 350px;
+            height: auto;
+            font-size: 25px;
+            margin: 7px;
+            padding: 5px;
+            border: 1px solid black;
+            background-color: rgb(199, 239, 239);
+            border-radius: 15px;
+        }
+
+        .content p {
+            text-align: center;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: black;
+            color: white;
+            height: 30px;
+            padding: 3px;
+            padding-bottom: 35px;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="" class="navbar-brand">
+                <strong>
+                    <font color="orange">MD</font>Info<font color="green">Tech</font>
+                </strong></a></div>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">services</a></li>
+                <li class="dropdown"><a href="#">product*</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">product1</a></li>
+                        <li><a href="#">product2</a></li>
+                        <li class="dropdown1"><a href="#">product3*</a>
+                            <ul class="dropdown-menu1">
+                                <li><a href="#">Test1</a></li>
+                                <li><a href="#">Test2</a></li>
+                                <li><a href="#">Test3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">product4</a></li>
+                        <li><a href="#">product5</a></li>
+                        <li><a href="#">product6</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">concat</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main">
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio adipisci laudantium quas eaque delectus
+                dicta nisi sint sed exercitationem fuga, nihil autem reprehenderit quos asperiores consequuntur, libero
+                doloribus, totam sit!</p>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Copyright © 2025 to 2030. All Rights Reserved </p>
+    </footer>
+</body>
+
+</html>

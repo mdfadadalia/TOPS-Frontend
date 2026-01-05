@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Navbar */
+        .navbar {
+            background: #000;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            position: relative;
+        }
+
+        .menu>li>a {
+            display: block;
+            padding: 15px 25px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* First dropdown */
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #000;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            min-width: 180px;
+        }
+
+        .submenu li a {
+            padding: 12px 20px;
+            display: block;
+            color: #fff;
+        }
+
+        /* Show first dropdown */
+        .dropdown:hover>.submenu {
+            display: block;
+        }
+
+        /* Right side submenu */
+        .dropdown-right {
+            position: relative;
+        }
+
+        .submenu-right {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* 🔥 THIS pushes it to the right */
+            background: #000;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            min-width: 160px;
+        }
+
+        /* Show right submenu on hover Product3 */
+        .dropdown-right:hover>.submenu-right {
+            display: block;
+        }
+
+        /* Hover effects */
+        .submenu li a:hover,
+        .submenu-right li a:hover {
+            background: #1976d2;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+
+            <li class="dropdown">
+                <a href="#">Product *</a>
+                <ul class="submenu">
+                    <li><a href="#">Product1</a></li>
+                    <li><a href="#">Product2</a></li>
+
+                    <li class="dropdown-right">
+                        <a href="#">Product3 ▶</a>
+                        <ul class="submenu-right">
+                            <li><a href="#">Test1</a></li>
+                            <li><a href="#">Test2</a></li>
+                            <li><a href="#">Test3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>
