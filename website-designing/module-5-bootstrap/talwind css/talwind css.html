@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fresh Fruits Shop</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+
+  <!-- ================= HEADER ================= -->
+<header class="bg-green-600 text-white">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">🍉 FreshFruits</h1>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="#" class="hover:text-yellow-300">Home</a>
+      <a href="#" class="hover:text-yellow-300">Shop</a>
+      <a href="#" class="hover:text-yellow-300">About</a>
+      <a href="#" class="hover:text-yellow-300">Contact</a>
+    </nav>
+
+    <!-- Mobile Button -->
+    <button onclick="toggleMenu()" class="md:hidden bg-green-700 px-3 py-1 rounded">
+      ☰
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-green-700">
+    <a href="#" class="block px-4 py-2 border-b">Home</a>
+    <a href="#" class="block px-4 py-2 border-b">Shop</a>
+    <a href="#" class="block px-4 py-2 border-b">About</a>
+    <a href="#" class="block px-4 py-2">Contact</a>
+  </div>
+</header>
+
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="bg-green-100">
+    <div class="container mx-auto px-4 py-16 text-center">
+      <h2 class="text-4xl font-bold text-green-800 mb-4">
+        Fresh & Organic Fruits
+      </h2>
+      <p class="text-gray-700 mb-6">
+        Direct from farmers to your home
+      </p>
+      <button class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">
+        Shop Now
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="container mx-auto px-4 py-12">
+    <h3 class="text-3xl font-bold text-center mb-10">Our Fruits</h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Product Card -->
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+        <img src=".\images\apple.jpg" class="rounded-t-lg h-40 object-cover m-auto">
+        <div class="p-4 text-center">
+          <h4 class="font-semibold text-lg">Fresh Apples</h4>
+          <p class="text-green-600 font-bold mt-2">₹120 / kg</p>
+          <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+        <img src=".\images\apple.jpg" class="rounded-t-lg h-40 object-cover m-auto">
+        <div class="p-4 text-center">
+          <h4 class="font-semibold text-lg">Bananas</h4>
+          <p class="text-green-600 font-bold mt-2">₹60 / dozen</p>
+          <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+        <img src=".\images\apple.jpg" class="rounded-t-lg h-40 object-cover m-auto">
+        <div class="p-4 text-center">
+          <h4 class="font-semibold text-lg">Oranges</h4>
+          <p class="text-green-600 font-bold mt-2">₹80 / kg</p>
+          <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition">
+        <img src=".\images\apple.jpg" class="rounded-t-lg h-40 object-cover m-auto">
+        <div class="p-4 text-center">
+          <h4 class="font-semibold text-lg">Grapes</h4>
+          <p class="text-green-600 font-bold mt-2">₹100 / kg</p>
+          <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="bg-green-50 py-12">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+      <div>
+        <h4 class="text-xl font-bold">🚚 Fast Delivery</h4>
+        <p class="text-gray-600 mt-2">Same day delivery available</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">🌱 Organic</h4>
+        <p class="text-gray-600 mt-2">100% chemical free fruits</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold">💰 Best Price</h4>
+        <p class="text-gray-600 mt-2">Affordable & fresh</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-green-600 text-white">
+    <div class="container mx-auto px-4 py-6 text-center">
+      <p>© 2026 FreshFruits Shop. All Rights Reserved.</p>
+    </div>
+  </footer>
+<script>
+  function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+  }
+</script>
+
+</body>
+</html>

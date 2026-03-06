@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Guest Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h4 class="text-center mt-3">🏨 MD's Hotel</h4>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="guests.html">Guest Management</a>
+        <a href="user.html">User Management</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+    <div class="content">
+        <div class="header">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <h4>Hotel Management System</h4>
+            <span id="user"></span>
+        </div>
+
+        <div class="card shadow p-4 mt-3">
+            <h3 class="text-center mb-4">User Management</h3>
+            <div id="msg"></div>
+            <form id="registerForm">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label>Full Name</label>
+                        <input id="name" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Email</label>
+                        <input id="email" class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label>Password</label>
+                        <input type="password" id="password" class="form-control">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-success px-4">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card shadow p-3 mt-4">
+            <h4>Registered Users</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <footer class="mt-5">
+            Hotel Management System © 2026, By : Swan Solution Pvt. Ltd
+        </footer>
+    </div>
+    <script>
+        class UserRegister {
+            constructor() {
+                this.form = document.getElementById("registerForm");
+                this.msg = document.getElementById("msg");
+                this.addEvents();
+                this.loadUsers();
+            }
+            addEvents() {
+                this.form.addEventListener("submit", e => {
+                    e.preventDefault();
+                    this.validateForm();
+                });
+                document.querySelectorAll("#registerForm input").forEach(el => {
+                    el.addEventListener("input", () => this.validateField(el));
+                    el.addEventListener("blur", () => this.validateField(el));
+                });
+            }
+            validateField(field) {
+                if (field.value.trim() === "") {
+                    field.classList.add("is-invalid");
+                } else {
+                    field.classList.remove("is-invalid");
+                }
+            }
+            validateForm() {
+                let name = nameInput.value.trim();
+                let email = emailInput.value.trim();
+                let password = passwordInput.value.trim();
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (name.length < 3) {
+                    return this.showMsg("Name must be at least 3 characters", "danger");
+                }
+                if (!emailRegex.test(email)) {
+                    return this.showMsg("Invalid email format", "danger");
+                }
+                if (password.length < 6) {
+                    return this.showMsg("Password must be at least 6 characters", "danger");
+                }
+                let users = this.getUsers();
+                if (users.find(u => u.email === email)) {
+                    return this.showMsg("Email already exists", "danger");
+                }
+                let user = {
+                    id: Date.now(),
+                    name: name,
+                    email: email,
+                    password: password
+                };
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+                this.showMsg("User Registered Successfully", "success");
+                this.form.reset();
+                this.loadUsers();
+            }
+            showMsg(msg, type) {
+                this.msg.innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
+                setTimeout(() => this.msg.innerHTML = "", 3000);
+            }
+            getUsers() {
+                return JSON.parse(localStorage.getItem("users")) || [];
+            }
+            loadUsers() {
+                let users = this.getUsers();
+                userTable.innerHTML = "";
+                if (users.length === 0) {
+                    userTable.innerHTML = "<tr><td colspan='3' class='text-center'>No Users Found</td></tr>";
+                    return;
+                }
+                users.forEach(u => {
+                    userTable.innerHTML += `
+                        <tr>
+                        <td>${u.name}</td>
+                        <td>${u.email}</td>
+                        <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser(${u.id})">Delete</button>
+                        </td>
+                        </tr>
+                        `;
+                });
+            }
+        }
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const app = new UserRegister();
+        function deleteUser(id) {
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            users = users.filter(u => u.id != id);
+            localStorage.setItem("users", JSON.stringify(users));
+            app.loadUsers();
+        }
+        function logout() {
+            localStorage.removeItem("loginUser");
+            location.href = "login.html";
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

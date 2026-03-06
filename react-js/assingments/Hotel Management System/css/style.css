@@ -1,0 +1,173 @@
+body{
+background:#f4f6fb;
+font-family:Segoe UI;
+margin:0;
+}
+
+/* SIDEBAR */
+.sidebar{
+height:100vh;
+background:#1f2937;
+color:white;
+position:fixed;
+width:240px;
+left:0;
+top:0;
+transition:0.3s;
+z-index:1000;
+}
+
+.sidebar h4{
+color:#fff;
+}
+
+.sidebar a{
+color:#d1d5db;
+display:block;
+padding:12px 20px;
+text-decoration:none;
+font-size:15px;
+}
+
+.sidebar a:hover{
+background:#374151;
+color:white;
+}
+
+/* MAIN CONTENT */
+.content{
+margin-left:240px;
+padding:20px;
+transition:0.3s;
+}
+
+/* HEADER */
+.header1{
+background:white;
+padding:12px 15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+.header{
+background:white;
+padding:12px 15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+display:flex;
+align-items:center;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px;
+}
+
+/* FOOTER */
+footer{
+background:#111827;
+color:white;
+padding:10px;
+text-align:center;
+margin-top:40px;
+}
+
+/* DASHBOARD CARDS */
+.card-box{
+border-radius:12px;
+padding:20px;
+color:white;
+text-align:center;
+}
+
+.card-blue{background:#3b82f6}
+.card-green{background:#10b981}
+.card-orange{background:#f59e0b}
+.card-red{background:#ef4444}
+
+/* FORM ERROR */
+.is-invalid{
+border-color:red;
+}
+
+/* TABLE MOBILE SCROLL */
+.table{
+min-width:600px;
+}
+
+.table-responsive{
+overflow-x:auto;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn{
+display:none;
+background:#1f2937;
+color:white;
+border:none;
+padding:6px 12px;
+font-size:20px;
+border-radius:4px;
+}
+
+.card-box{
+border-radius:12px;
+padding:25px;
+color:white;
+text-align:center;
+min-height:120px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.card-box h4{
+font-size:28px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.card-box p{
+margin:0;
+font-size:16px;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+   ========================= */
+
+@media(max-width:992px){
+
+.sidebar{
+left:-240px;
+}
+
+.sidebar.active{
+left:0;
+}
+
+.content{
+margin-left:0;
+}
+
+.menu-btn{
+display:block;
+}
+
+}
+
+/* MOBILE TABLE */
+@media (max-width:768px){
+
+.content{
+padding:15px;
+}
+
+.card-box{
+padding:20px;
+}
+
+.card-box h4{
+font-size:24px;
+}
+
+}

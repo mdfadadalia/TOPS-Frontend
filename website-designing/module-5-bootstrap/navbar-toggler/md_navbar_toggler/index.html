@@ -20,6 +20,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -37,20 +40,26 @@
                 </div>
             </div>
             <!-- Create a List -->
-            <div class="col-md-5 p-3">
+            <div class="col-md-5 p-1">
                 <ul class="header-links">
-                    <li><a href="#"></a><button type="button" class="btn btn-md bg-white p-1"><span
-                                class="bi bi-person">Login</span></button></li>
+                    <li><a href="#"></a><button type="button" class="btn btn-md bg-white p-1">Login <span
+                                class="bi bi-person"></span></button></li>
                     <li><a href="#">Become a seller</a></li>
                     <li><a href="#">More</a></li>
-                    <li><a href="#"><span class="bi bi-cart"></span>Cart</a></li>
+                    <li><a href="#"><span class="bi bi-cart"></span> Cart</a></li>
                 </ul>
             </div>
+            <p align="right" class="btn_toggler">
+            <button type="button" class="btn btn-sm shadow navbar-toggler p-1" data-bs-toggle="collapse"
+                data-bs-target="#flipkart-navbar">
+                <span class="bi bi-grid text-white fs-4 p-2"></span>
+            </button>
+            </p>
         </div>
     </section>
     <!-- Navbar -->
-    <div id="flipkart-navbar">
-        <nav class="navbar navbar-expand-md p-2 shadow-lg">
+    <div id="flipkart-navbar" class="navbar-collapse collapse">
+        <nav class="p-2 ms-auto shadow-lg">
             <ul class="navbar-links">
                 <li><a href="#">Electronics</a></li>
                 <li><a href="#">Electronics</a></li>
@@ -99,10 +108,10 @@
         </div>
     </div>
     <!-- footer -->
-     <div id="flipkart-footer" class="p-5 mt-5">
+    <div id="flipkart-footer" class="p-5 mt-5">
 
-     </div>
-     
+    </div>
+
     <!-- modal dailog -->
     <div id="reg" class="modal fade" role="dialog">
         <div class="modal-dialog" style="min-width:50%">
@@ -117,7 +126,8 @@
                                 alt="Img">
                         </p>
                     </div>
-                     <div class="col-md-8 login-form p-5">
+                    <div class="col-md-8 login-form p-5">
+                        <h1 class="text-danger" align="right" data-bs-dismiss="modal">&times;</h1>
                         <form class="mt-0">
                             <div class="form-group mt-2">
                                 <input type="text"

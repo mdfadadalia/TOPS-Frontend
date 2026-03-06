@@ -1,63 +1,88 @@
-body{
+body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     background-color: #f1f3f6;
 }
-#flipkart-header{
+
+#flipkart-header {
     width: 100%;
-    height: auto;    
-    background-color: #2874f0;  
+    height: auto;
+    background-color: #2874f0;
     z-index: 5;
 }
-#flipkart-header ul li{
+
+#flipkart-header ul li {
     display: inline-block;
-    margin:2px 8px;    
+    margin: 2px 5px;
 }
-#flipkart-header ul li a{
+
+#flipkart-header ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
 }
-.logo{
+
+.logo {
     width: 30%;
     height: auto;
 }
-#flipkart-navbar ul
-{
+
+#flipkart-navbar ul {
     margin-left: 15%;
 }
-#flipkart-navbar ul li
-{
+
+#flipkart-navbar ul li {
     display: inline-block;
     margin: 2px 15px;
 }
 
-#flipkart-navbar ul li a
-{
+#flipkart-navbar ul li a {
     text-decoration: none;
     color: black;
 }
-#flipkart-content{
+
+#flipkart-content {
     width: 80%;
     height: auto;
     margin: auto;
     padding: 20px;
     margin-top: 2%;
 }
+
 .login-sidebar {
-    background-color: #2874f0;;
+    background-color: #2874f0;
+    ;
 }
-.login-form{
+
+.login-form {
     background-color: white;
 }
-.btn-login{
-    background-color:  #fb641b;;
+
+.btn-login {
+    background-color: #fb641b;
+    ;
     color: white;
     font-size: 18px;
 }
-#flipkart-footer{
+
+#flipkart-footer {
     width: 100%;
     height: auto;
     background-color: black;
+}
+
+
+@media only screen and (min-width:992px) {
+    #flipkart-content {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: 20px;
+        margin-top: 2%;
+    }
+    .btn_toggler span 
+    {
+        display: none;
+    }  
 }

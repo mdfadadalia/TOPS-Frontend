@@ -1,0 +1,26 @@
+<div id="box" style="width:150px;height:300px;background:gray;"></div>
+
+<script>
+let box = document.getElementById("box");
+
+box.addEventListener("mouseenter", () => box.style.background = "green");
+box.addEventListener("mouseleave", () => box.style.background = "gray");
+
+window.addEventListener("scroll", function () {
+  console.log("Scrolling...");
+});
+</script>
+
+<ul id="list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+
+<script>
+document.getElementById("list").addEventListener("click", function (e) {
+  if (e.target.tagName === "LI") {
+    alert(e.target.innerText);
+  }
+});
+</script>
+

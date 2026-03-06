@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="card p-4 shadow mx-auto" style="max-width:400px">
+            <h3 class="text-center">Register</h3>
+            <div id="msg"></div>
+            <form id="registerForm">
+                <input id="name" class="form-control mb-2" placeholder="Full Name">
+                <input id="email" class="form-control mb-2" placeholder="Email">
+                <input id="password" type="password" class="form-control mb-3" placeholder="Password">
+                <input type="submit" class="btn btn-success w-100" value="Register">
+            </form>
+            <p class="text-center mt-3">
+            If already account? <a href="login.html">Login</a>
+        </p>
+        </div>          
+    </div>
+    
+
+    <script>
+        class UserRegister {
+            constructor() {
+                this.form = document.getElementById("registerForm");
+                this.msg = document.getElementById("msg");
+                this.addEvents();
+            }
+            addEvents() {
+                this.form.addEventListener("submit", e => {
+                    e.preventDefault();
+                    this.validateForm();
+                });
+                document.querySelectorAll("#registerForm input").forEach(el => {
+                    el.addEventListener("input", () => this.validateField(el));
+                    el.addEventListener("blur", () => this.validateField(el));
+                });
+            }
+            validateField(field) {
+                if (field.value.trim() === "") {
+                    field.classList.add("is-invalid");
+                } else {
+                    field.classList.remove("is-invalid");
+                }
+            }
+            validateForm() {
+                let name = nameInput.value.trim();
+                let email = emailInput.value.trim();
+                let password = passwordInput.value.trim();
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (name.length < 3) {
+                    return this.showMsg("Name must be at least 3 characters", "danger");
+                }
+                if (!emailRegex.test(email)) {
+                    return this.showMsg("Invalid email format", "danger");
+                }
+                if (password.length < 6) {
+                    return this.showMsg("Password must be at least 6 characters", "danger");
+                }
+                let users = this.getUsers();
+                if (users.find(u => u.email === email)) {
+                    return this.showMsg("Email already exists", "danger");
+                }
+                let user = {
+                    id: Date.now(),
+                    name: name,
+                    email: email,
+                    password: password
+                };
+                users.push(user);
+                localStorage.setItem("users", JSON.stringify(users));
+                this.showMsg("User Registered Successfully", "success");
+                this.form.reset();                               
+                setTimeout(() =>  location.href = "login.html", 1000);
+            }
+            showMsg(msg, type) {
+                this.msg.innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
+                setTimeout(() => this.msg.innerHTML = "", 3000);
+            }
+            getUsers() {
+                return JSON.parse(localStorage.getItem("users")) || [];
+            }
+        }
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const app = new UserRegister();
+    </script>
+
+</body>
+
+</html>

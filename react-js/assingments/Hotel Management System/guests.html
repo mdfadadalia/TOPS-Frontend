@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guest Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">    
+</head>
+
+<body>
+    <div class="sidebar">
+        <h4 class="text-center mt-3">🏨 MD's Hotel</h4>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="guests.html">Guest Management</a>
+        <a href="user.html">User Management</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+    <div class="content">
+        <div class="header">
+			<button class="menu-btn" onclick="toggleMenu()">☰</button>
+			<h4>Hotel Management System</h4>
+			<span id="user"></span>
+		</div>
+        <div class="card shadow p-4 mt-3">
+            <h4 class="mb-3">Guest Registration Form</h4>
+            <div id="messageBox"></div>
+            <form id="guestForm">
+                <input type="hidden" id="editId">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Full Name</label>
+                        <input id="fullName" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Phone Number</label>
+                        <input id="phone" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Email</label>
+                        <input id="email" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Aadhar Number</label>
+                        <input id="aadhar" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Check In Date</label>
+                        <input type="date" id="checkin" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Check Out Date</label>
+                        <input type="date" id="checkout" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>No of Adults</label>
+                        <input id="adults" class="form-control">
+                    </div>
+                    <div class="col-12">
+                        <label>Address</label>
+                        <textarea id="address" class="form-control"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label>Purpose of Visit</label>
+                        <textarea id="purpose" class="form-control"></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary px-4">Save Guest</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card shadow p-3 mt-4">
+            <h4>Guest Records</h4>
+            <input id="search" class="form-control mb-3" placeholder="Search by Name or Date">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Checkin</th>
+                            <th>Checkout</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guestTable"></tbody>
+                </table>
+            </div>
+        </div>
+         <footer class="mt-5">
+            Hotel Management System © 2026, By : Swan Solution Pvt. Ltd
+        </footer>
+    </div>   
+</body>
+<script>
+        // Ensure logout function exists to prevent errors
+        function logout() {
+            localStorage.clear();
+            window.location.href = "dashboard.html";
+        }
+
+        // Declare all DOM elements used in validation
+        const fullName = document.getElementById("fullName");
+        const phone = document.getElementById("phone");
+        const email = document.getElementById("email");
+        const address = document.getElementById("address");
+        const aadhar = document.getElementById("aadhar");
+        const adults = document.getElementById("adults");
+        const purpose = document.getElementById("purpose");
+        const checkin = document.getElementById("checkin");
+        const checkout = document.getElementById("checkout");
+        const editId = document.getElementById("editId");
+        const guestTable = document.getElementById("guestTable");
+        const search = document.getElementById("search");
+
+        class CustomerFormHandler 
+        {
+            constructor() 
+            {
+                this.form = document.getElementById("guestForm");
+                this.message = document.getElementById("messageBox");
+                this.addEvents();
+            }
+
+            addEvents() 
+            {
+                this.form.addEventListener("submit", e => 
+                {
+                    e.preventDefault();
+                    this.validateForm();
+                });
+
+                this.form.addEventListener("input", e => 
+                {
+                    this.validateField(e.target);
+                });
+
+                this.form.addEventListener("blur", e => 
+                {
+                    this.validateField(e.target);
+                }, true);
+            }
+
+
+            validateField(field) 
+            {
+                if (field.tagName === "INPUT" || field.tagName === "TEXTAREA") 
+                {
+                    if (field.value.trim() === "") 
+                    {
+                        field.classList.add("is-invalid");
+                    } 
+                    else 
+                    {
+                        field.classList.remove("is-invalid");
+                    }
+                }
+            }
+
+            validateForm() 
+            {
+                let name = fullName.value.trim();
+                let phoneVal = phone.value.trim();
+                let emailVal = email.value.trim();
+                let addressVal = address.value.trim();
+                let aadharVal = aadhar.value.trim();
+                let adultsVal = adults.value.trim();
+                let purposeVal = purpose.value.trim();
+                let checkinVal = checkin.value;
+                let checkoutVal = checkout.value;
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                let today = new Date().toISOString().split("T")[0];
+            
+                if (name.length < 3) 
+                {
+                    return this.showMessage("Name must be at least 3 characters", "danger");
+                }
+            
+                if (phoneVal.length != 10) 
+                {
+                    return this.showMessage("Phone must be exactly 10 digits", "danger");
+                }
+            
+                if (!emailRegex.test(emailVal)) 
+                {
+                    return this.showMessage("Invalid Email", "danger");
+                }
+            
+                if (aadharVal.length != 12) 
+                {
+                    return this.showMessage("Aadhar must be 12 digits", "danger");
+                }
+            
+                if (checkinVal < today || checkoutVal <= today) 
+                {
+                    return this.showMessage("Dates must be future dates", "danger");
+                }
+            
+                if (adultsVal === "" || isNaN(adultsVal)) 
+                {
+                    return this.showMessage("Adults must be a number", "danger");
+                }
+            
+                if (purposeVal.length < 3) 
+                {
+                    return this.showMessage("Purpose required", "danger");
+                }
+            
+                let data = 
+                {
+                    id: editId.value || Date.now(),
+                    name: name,
+                    phone: phoneVal,
+                    email: emailVal,
+                    address: addressVal,
+                    aadhar: aadharVal,
+                    checkin: checkinVal,
+                    checkout: checkoutVal,
+                    adults: adultsVal,
+                    purpose: purposeVal
+                };
+            
+                this.saveToLocalStorage(data);
+                this.showMessage("Guest Saved Successfully", "success");
+                this.clearForm();
+                loadGuests();
+            }
+
+            saveToLocalStorage(data) 
+            {
+                let records = JSON.parse(localStorage.getItem("guests")) || [];
+                records.push(data);
+                localStorage.setItem("guests", JSON.stringify(records));
+            }
+
+            clearForm() 
+            {
+                this.form.reset();
+            }
+
+            showMessage(msg, type) 
+            {
+                this.message.innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
+                setTimeout(() => this.message.innerHTML = "", 3000);
+            }
+        }
+        new CustomerFormHandler();
+
+        function getGuests() 
+        {
+            return JSON.parse(localStorage.getItem("guests")) || [];
+        }
+
+        function loadGuests(filter = "") 
+        {
+            let guests = getGuests().filter(g => g.name.toLowerCase().includes(filter.toLowerCase()));
+            guestTable.innerHTML = "";
+            if (guests.length == 0) 
+            {
+                guestTable.innerHTML = "<tr><td colspan='6' class='text-center'>No Data Found</td></tr>";
+                return;
+            }
+
+            guests.forEach(g => 
+            {
+                guestTable.innerHTML += `
+                        <tr>
+                        <td>${g.name}</td>
+                        <td>${g.phone}</td>
+                        <td>${g.email}</td>
+                        <td>${g.checkin}</td>
+                        <td>${g.checkout}</td>
+                        <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteGuest(${g.id})">Delete</button>
+                        </td>
+                        </tr>`;
+            });
+        }
+
+        function deleteGuest(id) 
+        {
+            let guests = getGuests().filter(g => g.id != id);
+            localStorage.setItem("guests", JSON.stringify(guests));
+            loadGuests();
+        }
+        search.addEventListener("input", e => loadGuests(e.target.value));
+        loadGuests();
+         function logout() {
+            localStorage.removeItem("loginUser");
+            location.href = "login.html";
+        }
+</script>
+<script src="js/main.js"></script>
+</html>
