@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    background-color: lightgray;    
+}
+#root
+{
+    padding-top: 50px;
+    width: 30%;  
+    margin-left: 40%;  
+    margin: auto; 
+    font-family:  monospace;
+    font-size:20px;
+}
+.calc_div input[type="text"]
+{
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;    
+    font-size: 20px;
+    font-family: Arial;
+}
+.calc_div input[type="button"]
+{
+    width: 50px;
+    height: 70px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 30px;
+    font-family: Arial;
+}
