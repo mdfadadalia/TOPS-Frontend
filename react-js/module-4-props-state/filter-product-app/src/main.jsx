@@ -1,11 +1,10 @@
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-//import App from './App.jsx'
-
+import ProductFilter from './ProductFilter'
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-	<h1>Hello World </h1>
-    <button className="btn">OKKKKKKKKKKK</button>
-  </StrictMode>,
+<StrictMode>
+<ProductFilter />
+</StrictMode>,
 )
