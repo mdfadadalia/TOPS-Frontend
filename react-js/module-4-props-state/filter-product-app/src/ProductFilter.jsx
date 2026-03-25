@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import Data from "./Data";
+import label from "./label";
 function ProductFilter()
 {
 //stored data in useState
@@ -12,6 +13,12 @@ const FilterData=(cat)=>{
 }
 // fetch all data create a function 
 
+const Labelshow=(msg)=>{
+    return (
+    alert("ok : " + msg)
+    )
+}
+
 const AllData=()=>{
     setFilter(Data);
     }
@@ -21,9 +28,11 @@ return(
 <h1>Product Filter App</h1>
 <hr />
 
-<button type="button" onClick={AllData}>All</button>
+<button type="button" onClick={() =>Labelshow("OK")}>OK</button>
+<button type="button" onClick={() =>Labelshow("Cancel")}>Cancel</button>
 
-{[...new Set(Data.map(item => item.category))].map((cat, index) => (    
+<button type="button" onClick={AllData}>All</button>
+{[...new Set(Data.map(item => item.category))].map((cat) => (    
    <button type="button" onClick={ ()=>FilterData(cat) }>{cat}</button>
 ))}
 

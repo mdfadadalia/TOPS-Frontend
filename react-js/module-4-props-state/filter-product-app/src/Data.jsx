@@ -90,6 +90,20 @@ const Data=[
         category:"Belt",
         price:950
     },
+	{
+        id:12,
+        photo:"https://rukminim2.flixcart.com/image/612/612/xif0q/cargo/i/n/q/l-men-cargo-men-cargo-pants-cotton-grey-metronaut-original-imahby5hkuwuenvc.jpeg?q=70",
+        name:"Mens Belts",
+        category:"Belt",
+        price:950
+    },
+	{
+        id:13,
+        photo:"https://rukminim2.flixcart.com/image/612/612/xif0q/cargo/i/n/q/l-men-cargo-men-cargo-pants-cotton-grey-metronaut-original-imahby5hkuwuenvc.jpeg?q=70",
+        name:"Mens Belts",
+        category:"Blt",
+        price:950
+    },
     
 ]
 
