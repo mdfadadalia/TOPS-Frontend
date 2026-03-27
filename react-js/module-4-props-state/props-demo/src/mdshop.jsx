@@ -3,6 +3,8 @@ import Data from "./Data";
 function MdShop()
 {
     return(<>
+        <h1 align="center">Fruit and Vegetable Shop</h1>
+        <hr/>
         <div className="emp_frame">
             {Data.map((item) => (
                <>

@@ -19,7 +19,7 @@ body {
   width: 300px;
   min-height: 180px;
   border: none;
-  border-radius: 16px;
+  border-radius: 50px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1.5px 4px rgba(0,0,0,0.06);
   margin: 0;
   padding: 24px 20px;
@@ -30,7 +30,7 @@ body {
 .emp_grid img{
   width: 80%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 100px;
 }
 
 .emp_grid:hover {

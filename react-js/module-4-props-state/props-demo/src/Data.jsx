@@ -72,7 +72,14 @@ const Data = [
         category: "Fruit",
         price: 270,
         product_img: grapesImg,
-    },    
+    },   
+    {
+        id: 10,
+        product: "Tomato",
+        category: "Vegetable",
+        price: 150,
+        product_img: tomatoImg,
+    }, 
 ];
 
 export default Data;
