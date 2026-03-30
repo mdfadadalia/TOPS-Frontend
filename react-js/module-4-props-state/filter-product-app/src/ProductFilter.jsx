@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 import Data from "./Data";
 
 function ProductFilter() {
@@ -34,7 +33,7 @@ function ProductFilter() {
         {/* 🔹 Title + Search */}
         <div className="row mb-3 align-items-center">
           <div className="col-md-6">
-            <h2 className="fw-bold">Product Search & Filter</h2>
+            <h2 className="fw-bold">#Product Search & Filter</h2>
           </div>
           <div className="col-md-6">
             <input
