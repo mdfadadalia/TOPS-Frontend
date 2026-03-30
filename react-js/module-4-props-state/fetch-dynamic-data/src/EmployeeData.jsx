@@ -1,19 +1,34 @@
-import React from "react";
-import { Container,Row,Button } from "react-bootstrap";
+import React,{useState} from "react";
+import { Container,Row } from "react-bootstrap";
 import data from "./Data";
+
+
+
+
 function EmployeeData()
 {
+    const [empdata, setEmpData] = useState(data);
+    const handelSearch = (e)=>{
+    const value = e.target.value.toLowerCase();
+        if(e.target.value=="")
+            setEmpData(data)
+        else        
+            setEmpData(data.filter(item => item.name.toLowerCase().includes(value) ||
+            item.name.toLowerCase().includes(value) ||
+            item.section.toLowerCase().includes(value)
+        ));
+    }
     return <>
-        <Container className="p-5 mt-5 mx-auto">
+        <Container className="p-4 mt-5 mx-auto align-center  align-items-center">
             <h1>
-                Employee Data 
-                <Button className="float-end">Add New</Button>
+                Employee Data <br/>
+                <input type="text" placeholder="Write here to Filter..." className="float-end form-control" onChange={handelSearch}/>
             </h1>
             <hr/>
             <Row>
-                {data && data.map((emp,index)=>{
+                {empdata && empdata.map((emp,index)=>{
                     return( <>
-                        <div className="col-md-3 gap-5 m-4 mt-3 border">
+                        <div className="col-md-3 gap-4 p-4 m-4 mt-3 border rounded-2 bg-info">
                             <p className="float-start">{index}</p>
                             <p className="text-center"><img src={emp.pics} className="img-fluid" style={{width:"80%", height:"150px"}}/></p>
                             <p>ID:{emp.id}</p>

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import Data from "./Data";
-import label from "./label";
+
 function ProductFilter()
 {
 //stored data in useState
@@ -11,12 +11,16 @@ const FilterData=(cat)=>{
     const result=Data.filter((items)=>items.category==cat);    
     setFilter(result);
 }
-// fetch all data create a function 
+// Write to Filter data create a function 
 
-const Labelshow=(msg)=>{
-    return (
-    alert("ok : " + msg)
-    )
+const handelSerch = (e)=>{
+    const value = e.target.value.toLowerCase();
+    if(value==="")
+        AllData();
+    else
+        setFilter(filter.filter(item => item.name.toLowerCase().includes(value)) || 
+        item.category.toLowerCase().includes(value)         
+    );
 }
 
 const AllData=()=>{
@@ -25,11 +29,10 @@ const AllData=()=>{
 return(
 <>
 <div className="app">
-<h1>Product Filter App</h1>
+<h1>Produc Search & Filter App</h1>
+<br/>
+<input type="text" className="search-input" placeholder="Search..." onChange={handelSerch} />
 <hr />
-
-<button type="button" onClick={() =>Labelshow("OK")}>OK</button>
-<button type="button" onClick={() =>Labelshow("Cancel")}>Cancel</button>
 
 <button type="button" onClick={AllData}>All</button>
 {[...new Set(Data.map(item => item.category))].map((cat) => (    
