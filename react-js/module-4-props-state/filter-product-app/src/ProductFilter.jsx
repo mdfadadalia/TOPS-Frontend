@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Data from "./Data";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Container, Row, Col, Card, Form } from "react-bootstrap";
 
 function ProductFilter() {
   const [filter, setFilter] = useState(Data);
@@ -74,7 +76,7 @@ function ProductFilter() {
                   <img
                     src={items.photo}
                     alt="photo"
-                    className="card-img-top img-fluid"
+                    className="card-img-top img-fluid w-100 h-100"
                     style={{ height: "150px", objectFit: "cover" }}
                   />
 
