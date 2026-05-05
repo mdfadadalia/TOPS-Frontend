@@ -15,10 +15,6 @@ const removeProduct = (name) =>{
   var newArray = product.filter(ele=>{
     return ele!=name
   })
-
-  const editProduct = (name) =>{
-
-  }
   setProduct(newArray)
 }
   return (<>
