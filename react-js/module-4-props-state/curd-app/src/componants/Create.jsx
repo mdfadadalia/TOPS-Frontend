@@ -1,22 +1,34 @@
-import { useEffect,useState } from "react"
+import { useEffect,useState,useRef } from "react"
 export const Create = ({addUserData,editData}) => {
 
-    const submitHandler = (e)=>{
-        e.preventDefault()      
-      
-        var data = {
-      username:e.target[0].value,
-      email:e.target[1].value,
-      phone:e.target[2].value}
-      data.username!=""? addUserData(data)  : alert("Blank Data Can't Insert")     
-      e.target[0].value=""
-      e.target[1].value=""
-      e.target[2].value=""
+  const username = useRef("")
+  const email = useRef("")
+  const phone = useRef("")  
 
+  const submitHandler = (e)=>{
+        e.preventDefault()        
+        var data = {
+        username:username.current.value,
+        email:email.current.value,
+        phone:phone.current.value
+      }
+      data.username!=""? addUserData(data)  : alert("Blank Data Can't Insert")     
+     
     }
-    var [formData,setFormData] = useState({username:"",email:"",phone:""})
+
     useEffect(() => {
-        setFormData(editData)
+        if(editData!=undefined)
+        {
+          username.current.value=editData.username
+          email.current.value=editData.email
+          phone.current.value=editData.phone
+        }
+        else
+        {
+          username.current.value=""
+          email.current.value=""
+          phone.current.value=""
+        }
     })
     
     return <div className="col-md-4">
@@ -26,7 +38,8 @@ export const Create = ({addUserData,editData}) => {
                   <div className="mb-3">
                     <label className="form-label">Username</label>
                     <input
-                      type="text"                      
+                      type="text"
+                      ref={username}                      
                       className="form-control"
                       placeholder="Enter username"
                     />
@@ -34,7 +47,8 @@ export const Create = ({addUserData,editData}) => {
                   <div className="mb-3">
                     <label className="form-label">Email</label>
                     <input
-                      type="email"                      
+                      type="email" 
+                      ref={email}                     
                       className="form-control"
                       placeholder="Enter email"
                     />
@@ -42,7 +56,8 @@ export const Create = ({addUserData,editData}) => {
                   <div className="mb-3">
                     <label className="form-label">Phone</label>
                     <input
-                      type="text"                      
+                      type="text"
+                      ref={phone}                      
                       className="form-control"
                       placeholder="Enter phone number"
                     />
