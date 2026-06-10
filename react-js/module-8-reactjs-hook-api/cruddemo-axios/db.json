@@ -1,0 +1,23 @@
+{
+  "users": [
+    {
+      "name": "Mayur Fadadalia",
+      "city": "Gondal",
+      "phone": "09408662385",
+      "id": "pXMV2f4tGYE"
+    },
+    {
+      "name": "Kiyan",
+      "city": "Rajkot",
+      "phone": "789",
+      "id": "x2l9E2KiqnE"
+    },
+    {
+      "name": "Gopi Patel",
+      "city": "Rajkot ",
+      "phone": "7772",
+      "id": "QYmIKgFiO1o"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
