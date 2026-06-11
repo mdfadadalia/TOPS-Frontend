@@ -1,0 +1,239 @@
+{
+  "categories": [
+    {
+      "id": "NJDCpK1PIhQ",
+      "title": "Electronics",
+      "image": "https://picsum.photos/id/180/300/200"
+    },
+    {
+      "id": "CAT002",
+      "title": "Fashion",
+      "image": "https://picsum.photos/id/26/300/200"
+    },
+    {
+      "id": "CAT003",
+      "title": "Books",
+      "image": "https://picsum.photos/id/24/300/200"
+    },
+    {
+      "id": "CAT004",
+      "title": "Home & Kitchen",
+      "image": "https://picsum.photos/id/42/300/200"
+    },
+    {
+      "id": "CAT005",
+      "title": "Sports",
+      "image": "https://picsum.photos/id/96/300/200"
+    },
+    {
+      "id": "CAT006",
+      "title": "Beauty",
+      "image": "https://picsum.photos/id/64/300/200"
+    },
+    {
+      "id": "CAT007",
+      "title": "Furniture",
+      "image": "https://picsum.photos/id/28/300/200"
+    },
+    {
+      "id": "CAT008",
+      "title": "Grocery",
+      "image": "https://picsum.photos/id/292/300/200"
+    }
+  ],
+  "products": [
+    {
+      "id": "XV8YDBUMsog",
+      "categoryId": "NJDCpK1PIhQ",
+      "title": "Laptop",
+      "price": 55000,
+      "qty": 10,
+      "image": "https://picsum.photos/id/0/400/300"
+    },
+    {
+      "id": "PROD002",
+      "categoryId": "NJDCpK1PIhQ",
+      "title": "Smartphone",
+      "price": 25000,
+      "qty": 25,
+      "image": "https://picsum.photos/id/160/400/300"
+    },
+    {
+      "id": "PROD003",
+      "categoryId": "NJDCpK1PIhQ",
+      "title": "Bluetooth Speaker",
+      "price": 1999,
+      "qty": 30,
+      "image": "https://picsum.photos/id/250/400/300"
+    },
+    {
+      "id": "PROD004",
+      "categoryId": "CAT002",
+      "title": "T-Shirt",
+      "price": 799,
+      "qty": 50,
+      "image": "https://picsum.photos/id/29/400/300"
+    },
+    {
+      "id": "PROD005",
+      "categoryId": "CAT002",
+      "title": "Jeans",
+      "price": 1499,
+      "qty": 30,
+      "image": "https://picsum.photos/id/91/400/300"
+    },
+    {
+      "id": "PROD006",
+      "categoryId": "CAT002",
+      "title": "Sneakers",
+      "price": 2999,
+      "qty": 20,
+      "image": "https://picsum.photos/id/21/400/300"
+    },
+    {
+      "id": "PROD007",
+      "categoryId": "CAT003",
+      "title": "React JS Guide",
+      "price": 499,
+      "qty": 20,
+      "image": "https://picsum.photos/id/20/400/300"
+    },
+    {
+      "id": "PROD008",
+      "categoryId": "CAT003",
+      "title": "JavaScript Essentials",
+      "price": 599,
+      "qty": 15,
+      "image": "https://picsum.photos/id/48/400/300"
+    },
+    {
+      "id": "PROD009",
+      "categoryId": "CAT003",
+      "title": "Python Programming",
+      "price": 699,
+      "qty": 18,
+      "image": "https://picsum.photos/id/169/400/300"
+    },
+    {
+      "id": "PROD010",
+      "categoryId": "CAT004",
+      "title": "Mixer Grinder",
+      "price": 2999,
+      "qty": 12,
+      "image": "https://picsum.photos/id/1060/400/300"
+    },
+    {
+      "id": "PROD011",
+      "categoryId": "CAT004",
+      "title": "Cookware Set",
+      "price": 1999,
+      "qty": 18,
+      "image": "https://picsum.photos/id/1080/400/300"
+    },
+    {
+      "id": "PROD012",
+      "categoryId": "CAT004",
+      "title": "Dinner Set",
+      "price": 1499,
+      "qty": 25,
+      "image": "https://picsum.photos/id/431/400/300"
+    },
+    {
+      "id": "PROD013",
+      "categoryId": "CAT005",
+      "title": "Cricket Bat",
+      "price": 2499,
+      "qty": 15,
+      "image": "https://picsum.photos/id/1040/400/300"
+    },
+    {
+      "id": "PROD014",
+      "categoryId": "CAT005",
+      "title": "Football",
+      "price": 999,
+      "qty": 40,
+      "image": "https://picsum.photos/id/433/400/300"
+    },
+    {
+      "id": "PROD015",
+      "categoryId": "CAT005",
+      "title": "Badminton Racket",
+      "price": 1299,
+      "qty": 22,
+      "image": "https://picsum.photos/id/577/400/300"
+    },
+    {
+      "id": "PROD016",
+      "categoryId": "CAT006",
+      "title": "Face Wash",
+      "price": 299,
+      "qty": 50,
+      "image": "https://picsum.photos/id/1027/400/300"
+    },
+    {
+      "id": "PROD017",
+      "categoryId": "CAT006",
+      "title": "Perfume",
+      "price": 899,
+      "qty": 30,
+      "image": "https://picsum.photos/id/823/400/300"
+    },
+    {
+      "id": "PROD018",
+      "categoryId": "CAT006",
+      "title": "Body Lotion",
+      "price": 399,
+      "qty": 35,
+      "image": "https://picsum.photos/id/342/400/300"
+    },
+    {
+      "id": "PROD019",
+      "categoryId": "CAT007",
+      "title": "Office Chair",
+      "price": 4999,
+      "qty": 10,
+      "image": "https://picsum.photos/id/106/400/300"
+    },
+    {
+      "id": "PROD020",
+      "categoryId": "CAT007",
+      "title": "Study Table",
+      "price": 6999,
+      "qty": 8,
+      "image": "https://picsum.photos/id/107/400/300"
+    },
+    {
+      "id": "PROD021",
+      "categoryId": "CAT007",
+      "title": "Bookshelf",
+      "price": 3499,
+      "qty": 12,
+      "image": "https://picsum.photos/id/1084/400/300"
+    },
+    {
+      "id": "PROD022",
+      "categoryId": "CAT008",
+      "title": "Rice 5kg",
+      "price": 399,
+      "qty": 100,
+      "image": "https://picsum.photos/id/108/400/300"
+    },
+    {
+      "id": "PROD023",
+      "categoryId": "CAT008",
+      "title": "Cooking Oil 1L",
+      "price": 179,
+      "qty": 80,
+      "image": "https://picsum.photos/id/292/400/300"
+    },
+    {
+      "id": "PROD024",
+      "categoryId": "CAT008",
+      "title": "Sugar 1kg",
+      "price": 55,
+      "qty": 120,
+      "image": "https://picsum.photos/id/312/400/300"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
