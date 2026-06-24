@@ -5,22 +5,26 @@ import RegisterUser from './componants/RegisterUser'
 import ForgotPwd from './componants/ForgotPwd'
 import ProductList from './componants/ProductList'
 import AddProduct from './componants/AddProduct'
-import ViewProduct from './componants/ViewProduct'
-import EditProduct from './componants/EditProduct'
+import { Link, Outlet } from 'react-router-dom'
+import { db } from './config/FirebaseRealdb'
+import MyDBContextProvider from './context/RealDBContext'
 
 const App = () => {
-  return (
-    <div>
-    <RegisterUser/>
-    <Login/>
-    <ForgotPwd/>
-    <Dashboard/>
-    <ProductList/>
-    <AddProduct/>
-    <ViewProduct/>
-    <EditProduct/>  
-    </div>
-  )
+  return <>
+  <MyDBContextProvider>
+      <nav className="navbar navbar-dark bg-primary">
+            <div className="container-fluid">
+                <a className="navbar-brand">CRUD Dashboard</a>
+                <div>
+                    <Link to="/login" className="btn btn-danger">
+                        Logout
+                    </Link>
+                </div>
+            </div>
+        </nav>
+      <Outlet />
+    </MyDBContextProvider>
+  </>
 }
 
 export default App

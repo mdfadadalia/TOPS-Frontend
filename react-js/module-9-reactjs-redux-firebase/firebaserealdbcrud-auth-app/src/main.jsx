@@ -8,47 +8,42 @@ import Login from './componants/Login.jsx'
 import ForgotPwd from './componants/ForgotPwd.jsx'
 import RegisterUser from './componants/RegisterUser.jsx'
 import Dashboard from './componants/Dashboard.jsx'
-import ViewProduct from './componants/ViewProduct.jsx'
 import AddProduct from './componants/AddProduct.jsx'
-import EditProduct from './componants/EditProduct.jsx'
 import ProductList from './componants/ProductList.jsx'
+
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<Login/>,
-    children:[
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/forgotpwd",
+    element: <ForgotPwd />
+  },
+  {
+    path: "/register",
+    element: <RegisterUser />
+  },
+  {
+    path: "/",
+    element: <App />,
+    children: [
       {
-        path:"/forgotpwd",
-        element:<ForgotPwd/>
+        path: "/",
+        element: <Dashboard />
       },
       {
-        path:"/register",
-        element:<RegisterUser/>
+        path: "/addproduct",
+        element: <AddProduct />
       },
       {
-        path:"/dashboard",
-        element:<Dashboard/>
-      },
-      {
-        path:"/viewproduct",
-        element:<ViewProduct/>
-      },
-      {
-        path:"/addproduct",
-        element:<AddProduct/>
-      },
-      {
-        path:"/editproduct",
-        element:<EditProduct/>
-      },
-      {
-        path:"/productlist",
-        element:<ProductList/>
+        path: "/productlist",
+        element: <ProductList />
       },
 
     ]
   }
 ])
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <RouterProvider router={router} />
 )
