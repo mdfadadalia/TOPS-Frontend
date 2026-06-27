@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from './componants/Login.jsx'
@@ -10,6 +11,7 @@ import RegisterUser from './componants/RegisterUser.jsx'
 import Dashboard from './componants/Dashboard.jsx'
 import AddProduct from './componants/AddProduct.jsx'
 import ProductList from './componants/ProductList.jsx'
+import AuthContextProvider from './context/AuthContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -45,5 +47,7 @@ const router = createBrowserRouter([
   }
 ])
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <AuthContextProvider>
+    <RouterProvider router={router} />
+  </AuthContextProvider>
 )
