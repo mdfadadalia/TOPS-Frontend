@@ -1,0 +1,175 @@
+ST-1 
+
+graphql-demo
+
+backend
+    package.json
+    server.js
+
+frontend
+    package.json
+
+ST -2 
+
+mkdir backend
+cd backend
+
+npm init -y
+
+npm install express apollo-server-express graphql
+
+ST -3 
+
+const express = require("express");
+const { ApolloServer, gql } = require("apollo-server-express");
+
+const app = express();
+
+ST -4 
+
+const students = [
+    {
+        id: "1",
+        name: "John",
+        age: 22
+    },
+    {
+        id: "2",
+        name: "Alice",
+        age: 20
+    }
+];
+
+ST -5
+
+const typeDefs = gql`
+
+type Student{
+    id:ID
+    name:String
+    age:Int
+}
+
+type Query{
+    students:[Student]
+}
+`;
+
+ST -6 
+
+const resolvers = {
+
+    Query:{
+
+        students:()=>{
+
+            return students;
+
+        }
+
+    }
+
+};
+
+ST -7
+
+async function start(){
+
+    const server = new ApolloServer({
+
+        typeDefs,
+        resolvers
+
+    });
+
+    await server.start();
+
+    server.applyMiddleware({app});
+
+    app.listen(4000,()=>{
+
+        console.log("Server running");
+
+    });
+
+}
+
+start();
+
+RESUT : 
+
+query{
+
+    students{
+
+        id
+        name
+        age
+
+    }
+
+}
+
+*************************************
+REACT 
+
+ST-1 
+npm install @apollo/client graphql
+
+import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+
+const client = new ApolloClient({
+    link: new HttpLink({
+        uri: "http://localhost:4000/graphql",
+    }),
+    cache: new InMemoryCache(),
+});
+
+export default client;
+
+ST -2
+
+import { ApolloProvider } from "@apollo/client/react";
+import client from "./ApolloClient";
+
+<ApolloProvider client={client}>
+    <App />
+</ApolloProvider>
+
+ST -3 
+import { gql } from "@apollo/client";
+
+export const GET_STUDENTS = gql`
+    query {
+        students {
+            id
+            name
+            age
+        }
+    }
+`;
+
+ST -4
+
+import { useQuery } from "@apollo/client/react";
+import { GET_STUDENTS } from "./query";
+
+function App() {
+    const { loading, error, data } = useQuery(GET_STUDENTS);
+
+    if (loading) return <h2>Loading...</h2>;
+    if (error) return <h2>Error</h2>;
+
+    return (
+        <div>
+            {data.students.map((student) => (
+                <div key={student.id}>
+                    <h3>{student.name}</h3>
+                    <p>{student.age}</p>
+                </div>
+            ))}
+        </div>
+    );
+}
+
+export default App;
