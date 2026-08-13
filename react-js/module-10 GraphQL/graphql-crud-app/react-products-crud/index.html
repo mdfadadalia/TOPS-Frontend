@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>react-products-crud</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+
+  // =====================================================
+  // STATIC PRODUCT DATA
+  // =====================================================
+
+  let products = [
+
+    {
+      _id: "1",
+      name: "iPhone 15",
+      price: 69999,
+      category: "Electronics",
+      quantity: 12,
+      createdAt: "2026-08-01"
+    },
+
+    {
+      _id: "2",
+      name: "Samsung Galaxy S24",
+      price: 64999,
+      category: "Electronics",
+      quantity: 8,
+      createdAt: "2026-08-02"
+    },
+
+    {
+      _id: "3",
+      name: "Nike Air Max",
+      price: 8999,
+      category: "Clothing",
+      quantity: 25,
+      createdAt: "2026-08-03"
+    },
+
+    {
+      _id: "4",
+      name: "T-Shirt",
+      price: 799,
+      category: "Clothing",
+      quantity: 40,
+      createdAt: "2026-08-04"
+    },
+
+    {
+      _id: "5",
+      name: "Organic Rice",
+      price: 599,
+      category: "Food",
+      quantity: 50,
+      createdAt: "2026-08-05"
+    },
+
+    {
+      _id: "6",
+      name: "Coffee Beans",
+      price: 899,
+      category: "Food",
+      quantity: 15,
+      createdAt: "2026-08-06"
+    }
+
+  ];
+
+
+  let deleteId = null;
+
+
+  // =====================================================
+  // DISPLAY PRODUCTS
+  // =====================================================
+
+  function renderProducts() {
+
+    const tbody =
+      document.getElementById("productTableBody");
+
+    const search =
+      document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const category =
+      document.getElementById("categoryFilter")
+        .value;
+
+
+    const filteredProducts = products.filter(product => {
+
+      const matchSearch =
+        product.name
+          .toLowerCase()
+          .includes(search);
+
+      const matchCategory =
+        category === "" ||
+        product.category === category;
+
+      return matchSearch && matchCategory;
+
+    });
+
+
+    tbody.innerHTML = "";
+
+
+    if (filteredProducts.length === 0) {
+
+      document
+        .getElementById("noData")
+        .classList.remove("d-none");
+
+    } else {
+
+      document
+        .getElementById("noData")
+        .classList.add("d-none");
+
+    }
+
+
+    filteredProducts.forEach((product, index) => {
+
+      let quantityClass = "quantity-good";
+
+      if (product.quantity === 0) {
+
+        quantityClass = "quantity-out";
+
+      } else if (product.quantity < 10) {
+
+        quantityClass = "quantity-low";
+
+      }
+
+
+      tbody.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${index + 1}
+                        </td>
+
+                        <td>
+
+                            <div class="product-name">
+
+                                ${product.name}
+
+                            </div>
+
+                        </td>
+
+                        <td>
+
+                            <span class="category-badge">
+
+                                ${product.category}
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <strong>
+
+                                ₹${Number(product.price).toLocaleString("en-IN")}
+
+                            </strong>
+
+                        </td>
+
+                        <td>
+
+                            <span class="quantity-badge ${quantityClass}">
+
+                                ${product.quantity}
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            ${formatDate(product.createdAt)}
+
+                        </td>
+
+                        <td class="text-center">
+
+                            <button
+                                class="btn btn-sm btn-outline-primary action-btn me-1"
+                                onclick="editProduct('${product._id}')"
+                                title="Edit">
+
+                                <i class="bi bi-pencil"></i>
+
+                            </button>
+
+
+                            <button
+                                class="btn btn-sm btn-outline-danger action-btn"
+                                onclick="deleteProduct('${product._id}')"
+                                title="Delete">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+    });
+
+
+    updateStatistics();
+
+  }
+
+
+  // =====================================================
+  // ADD PRODUCT
+  // =====================================================
+
+  function openAddModal() {
+
+    document.getElementById("modalTitle")
+      .innerText = "Add Product";
+
+    document.getElementById("productForm")
+      .reset();
+
+    document.getElementById("productId")
+      .value = "";
+
+    document.getElementById("productQuantity")
+      .value = 0;
+
+  }
+
+
+  // =====================================================
+  // EDIT PRODUCT
+  // =====================================================
+
+  function editProduct(id) {
+
+    const product =
+      products.find(p => p._id === id);
+
+    if (!product) return;
+
+
+    document.getElementById("modalTitle")
+      .innerText = "Edit Product";
+
+    document.getElementById("productId")
+      .value = product._id;
+
+    document.getElementById("productName")
+      .value = product.name;
+
+    document.getElementById("productPrice")
+      .value = product.price;
+
+    document.getElementById("productCategory")
+      .value = product.category;
+
+    document.getElementById("productQuantity")
+      .value = product.quantity;
+
+
+    const modal =
+      new bootstrap.Modal(
+        document.getElementById("productModal")
+      );
+
+    modal.show();
+
+  }
+
+
+  // =====================================================
+  // SAVE PRODUCT
+  // =====================================================
+
+  function saveProduct() {
+
+    const id =
+      document.getElementById("productId").value;
+
+    const name =
+      document.getElementById("productName").value.trim();
+
+    const price =
+      Number(document.getElementById("productPrice").value);
+
+    const category =
+      document.getElementById("productCategory").value;
+
+    const quantity =
+      Number(document.getElementById("productQuantity").value);
+
+
+    if (!name || !price || !category) {
+
+      alert("Please fill all required fields.");
+
+      return;
+
+    }
+
+
+    // EDIT
+
+    if (id) {
+
+      const product =
+        products.find(p => p._id === id);
+
+      product.name = name;
+      product.price = price;
+      product.category = category;
+      product.quantity = quantity;
+
+    }
+
+    // ADD
+
+    else {
+
+      products.push({
+
+        _id: Date.now().toString(),
+
+        name: name,
+
+        price: price,
+
+        category: category,
+
+        quantity: quantity,
+
+        createdAt:
+          new Date()
+            .toISOString()
+            .split("T")[0]
+
+      });
+
+    }
+
+
+    renderProducts();
+
+
+    bootstrap.Modal
+      .getInstance(
+        document.getElementById("productModal")
+      )
+      .hide();
+
+  }
+
+
+  // =====================================================
+  // DELETE PRODUCT
+  // =====================================================
+
+  function deleteProduct(id) {
+
+    const product =
+      products.find(p => p._id === id);
+
+    if (!product) return;
+
+
+    deleteId = id;
+
+    document.getElementById("deleteProductName")
+      .innerText = product.name;
+
+
+    const modal =
+      new bootstrap.Modal(
+        document.getElementById("deleteModal")
+      );
+
+    modal.show();
+
+  }
+
+
+  // =====================================================
+  // CONFIRM DELETE
+  // =====================================================
+
+  function confirmDelete() {
+
+    products =
+      products.filter(
+        product => product._id !== deleteId
+      );
+
+
+    deleteId = null;
+
+    renderProducts();
+
+
+    bootstrap.Modal
+      .getInstance(
+        document.getElementById("deleteModal")
+      )
+      .hide();
+
+  }
+
+
+  // =====================================================
+  // SEARCH
+  // =====================================================
+
+  document
+    .getElementById("searchInput")
+    .addEventListener(
+      "input",
+      renderProducts
+    );
+
+
+  // =====================================================
+  // CATEGORY FILTER
+  // =====================================================
+
+  document
+    .getElementById("categoryFilter")
+    .addEventListener(
+      "change",
+      renderProducts
+    );
+
+
+  // =====================================================
+  // RESET FILTER
+  // =====================================================
+
+  function resetFilters() {
+
+    document.getElementById("searchInput")
+      .value = "";
+
+    document.getElementById("categoryFilter")
+      .value = "";
+
+    renderProducts();
+
+  }
+
+
+  // =====================================================
+  // STATISTICS
+  // =====================================================
+
+  function updateStatistics() {
+
+    document.getElementById("totalProducts")
+      .innerText = products.length;
+
+
+    const totalQuantity =
+      products.reduce(
+        (total, product) =>
+          total + Number(product.quantity),
+        0
+      );
+
+
+    document.getElementById("totalQuantity")
+      .innerText = totalQuantity;
+
+
+    const categories =
+      new Set(
+        products.map(product => product.category)
+      );
+
+
+    document.getElementById("totalCategories")
+      .innerText = categories.size;
+
+  }
+
+
+  // =====================================================
+  // DATE FORMAT
+  // =====================================================
+
+  function formatDate(date) {
+
+    if (!date) return "-";
+
+    return new Date(date)
+      .toLocaleDateString(
+        "en-IN",
+        {
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        }
+      );
+
+  }
+
+
+  // =====================================================
+  // INITIAL LOAD
+  // =====================================================
+
+  renderProducts();
+
+</script>
+</body>
+</html>
