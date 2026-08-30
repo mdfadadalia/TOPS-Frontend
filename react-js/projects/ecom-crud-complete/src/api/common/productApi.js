@@ -1,0 +1,11 @@
+import api, { unwrap } from "../client";
+export const listProducts = (params, signal) => unwrap(api.get("/products", { params, signal }));
+export const searchProducts = (params, signal) => unwrap(api.get("/products/search", { params, signal }));
+export const getLatestProducts = () => unwrap(api.get("/products/latest"));
+export const getFeaturedProducts = () => unwrap(api.get("/products/featured"));
+export const getProduct = (id) => unwrap(api.get(`/products/${id}`));
+export const getRelatedProducts = (id) => unwrap(api.get(`/products/${id}/related`));
+export const addReview = ({ id, details }) => unwrap(api.post(`/products/${id}/reviews`, details));
+export const createProduct = (formData) => unwrap(api.post("/products", formData));
+export const updateProduct = ({ id, formData }) => unwrap(api.put(`/products/${id}`, formData));
+export const deleteProduct = (id) => unwrap(api.delete(`/products/${id}`));

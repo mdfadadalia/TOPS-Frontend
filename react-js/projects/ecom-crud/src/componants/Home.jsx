@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchFeaturedProducts } from '../store/slices/productSlice'
 import NewArrivals from './NewArrivals';
 import Category from "./Category";
 import { Link } from 'react-router-dom';
 const Home = () => {
-    const [products, setProducts] = useState([])
+    const dispatch = useDispatch()
+    const products = useSelector((state) => state.products.featured)
     useEffect(() => {
-        fetch('https://dummyjson.com/products').then(res => res.json())
-            .then(result => setProducts(result.products))
-            .catch(error => console.log(error)
-            )
-
-    }, [])
+        dispatch(fetchFeaturedProducts())
+    }, [dispatch])
     return <>
         <main className="main">
             {/*=============== HOME ===============*/}

@@ -4,6 +4,9 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchCategories } from "../store/slices/categorySlice";
 
 const categories = [
   {
@@ -53,6 +56,14 @@ const categories = [
   },
 ];
 const Category = () => {
+  const category = useSelector((state) => state.categories)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchCategories())
+  }, [dispatch])
+  
+  if(category.loading)
+    {return <h2>Loadinig . . . </h2>}  
   return <>
     <section className="categories container section">
       <h3 className="section__title"><span>Popular</span> Categories
@@ -99,17 +110,18 @@ const Category = () => {
               },
             }}
           >
-            {categories.map((item) => (
-              <SwiperSlide key={item.id}>
+            
+
+            {category.items.map((item,index) => (
+              <SwiperSlide key={index}>
                 <div className="category__item">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={item.name}
                     className="category__img"
                   />
-
                   <h3 className="category__title">
-                    {item.title}
+                    {item.name}
                   </h3>
                 </div>
               </SwiperSlide>
